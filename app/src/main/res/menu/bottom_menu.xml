@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Scanning" android:id="@+id/cameraFragment" android:icon="@drawable/ic_camera_alt_black_24dp"
+          android:visible="true" android:enabled="true" app:showAsAction="ifRoom|withText"/>
+    <item android:title="Manual" android:id="@+id/manualFragment" android:icon="@drawable/ic_keyboard_black_24dp"
+          android:visible="true" android:enabled="true" app:showAsAction="ifRoom|withText" android:checked="true"
+          android:checkable="true"/>
+    <item android:title="Donate" android:id="@+id/donateFragment" android:icon="@drawable/ic_filter_vintage_black_24dp"
+          android:visible="true" android:enabled="true" app:showAsAction="ifRoom|withText"
+          android:menuCategory="container"/>
+</menu>
