@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:fontFamily="@font/roboto_medium" android:textSize="30sp"
-            android:textColor="@color/colorPrimaryDark" tools:text="529.1 NOK"/>
+            android:textColor="@color/colorPrimaryDark" tools:text="@{SharedValue.number}"/>
     <fragment
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
@@ -58,10 +58,10 @@
             app:layout_constraintTop_toTopOf="@+id/container"
             app:srcCompat="@drawable/eur" android:scaleType="centerInside" android:adjustViewBounds="true"
             android:cropToPadding="true" android:layout_marginStart="16dp" android:elevation="8dp"
-            android:background="@drawable/eur"/>
+            android:background="@drawable/eur" style="?spinnerStyle"/>
     <ImageView
             android:layout_width="42dp"
-            android:layout_height="42dp" app:srcCompat="@drawable/nok"
+            android:layout_height="42dp"
             android:id="@+id/imgTo" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toTopOf="@+id/container" android:adjustViewBounds="true"
             android:cropToPadding="true" android:elevation="8dp" android:background="@drawable/nok"/>
