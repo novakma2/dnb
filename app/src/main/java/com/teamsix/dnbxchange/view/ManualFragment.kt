@@ -14,6 +14,7 @@ import it.sephiroth.android.library.uigestures.UIGestureRecognizer
 import it.sephiroth.android.library.uigestures.UIGestureRecognizerDelegate
 import it.sephiroth.android.library.uigestures.UISwipeGestureRecognizer
 import kotlinx.android.synthetic.main.fragment_manual.*
+import java.math.BigDecimal
 
 
 class ManualFragment : Fragment() {
@@ -48,6 +49,8 @@ class ManualFragment : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s!!.isNotEmpty()) {
                     sharedValue.number.postValue(s.toString().toBigDecimal())
+                } else {
+                    sharedValue.number.postValue(BigDecimal.valueOf(0))
                 }
             }
 
