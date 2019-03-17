@@ -23,7 +23,7 @@ class ExchangeActivity : FragmentActivity() {
     lateinit var host: NavHostFragment
     var toCurrency: String = "NOK"
     lateinit var fromCurrency: String
-    lateinit var value: BigDecimal
+    var value: BigDecimal = BigDecimal.valueOf(0)
     private lateinit var sharedValue: SharedValue
 
     override fun onCreate(savedInstanceState: Bundle?) {
