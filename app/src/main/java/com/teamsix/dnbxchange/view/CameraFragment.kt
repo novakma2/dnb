@@ -1,12 +1,14 @@
 package com.teamsix.dnbxchange.view
 
 import android.os.Bundle
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.camerakit.CameraKitView
-import com.teamsix.dnbxchange.R
+import java.io.File
+import java.io.FileOutputStream
 
 
 class CameraFragment : Fragment() {
@@ -21,7 +23,30 @@ class CameraFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        cameraKitView = view?.findViewById(R.id.camera)
+        cameraKitView = view?.findViewById(com.teamsix.dnbxchange.R.id.camera)
+        cameraKitView?.gestureListener = object : CameraKitView.GestureListener {
+            override fun onTap(cameraKitView: CameraKitView, v: Float, v1: Float) {
+            }
+
+            override fun onLongTap(cameraKitView: CameraKitView, v: Float, v1: Float) {
+                cameraKitView.captureImage { _, capturedImage ->
+                    val savedPhoto = File(Environment.getExternalStorageDirectory(), "photo.jpg")
+                    try {
+                        val outputStream = FileOutputStream(savedPhoto.getPath())
+                        outputStream.write(capturedImage)
+                        outputStream.close()
+                    } catch (e: java.io.IOException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+            override fun onDoubleTap(cameraKitView: CameraKitView, v: Float, v1: Float) {
+            }
+
+            override fun onPinch(cameraKitView: CameraKitView, v: Float, v1: Float, v2: Float) {
+            }
+        }
     }
 
     override fun onStart() {
