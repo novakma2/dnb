@@ -78,6 +78,7 @@ class ExchangeActivity : FragmentActivity() {
     }
 
     fun updateValue() {
+        value *= 8.53.toBigDecimal()
         txtConvertedValue.text = "${value.toEngineeringString()} $toCurrency"
     }
 

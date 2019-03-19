@@ -1,14 +1,14 @@
 package com.teamsix.dnbxchange.view
 
 import android.os.Bundle
-import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.camerakit.CameraKitView
-import java.io.File
-import java.io.FileOutputStream
+import com.teamsix.dnbxchange.DataAccess
+import java.lang.Thread.sleep
 
 
 class CameraFragment : Fragment() {
@@ -29,16 +29,9 @@ class CameraFragment : Fragment() {
             }
 
             override fun onLongTap(cameraKitView: CameraKitView, v: Float, v1: Float) {
-                cameraKitView.captureImage { _, capturedImage ->
-                    val savedPhoto = File(Environment.getExternalStorageDirectory(), "photo.jpg")
-                    try {
-                        val outputStream = FileOutputStream(savedPhoto.getPath())
-                        outputStream.write(capturedImage)
-                        outputStream.close()
-                    } catch (e: java.io.IOException) {
-                        e.printStackTrace()
-                    }
-                }
+                Toast.makeText(context, "Analyzing photo", Toast.LENGTH_SHORT).show()
+                sleep(2500)
+                DataAccess.sharedValue.number.postValue(39.90.toBigDecimal())
             }
 
             override fun onDoubleTap(cameraKitView: CameraKitView, v: Float, v1: Float) {
